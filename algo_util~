@@ -1,0 +1,17 @@
+afficher les options 
+affecter à une variable options les chaines de caractères ("option 1" "option 2" "option 3" "option 4" "option 5" "option 6" "option 7" "option 8")
+on lit une variable opt qui prendra les chiffres des options
+tant que opt différent de 8 on fait
+cas du paramètre opt dans
+1) lire un user puis l'ajouter avec sudo adduser $user
+2) lire un user ;  puis le supprimer avec sudo deluser $user;;
+3) afficher tous les utilisateurs qui sont dans la machine avec cat /etc/passwd;;
+4) afficher la personne connecté à la machinewho;;
+5) lire un user et afficher la dernière connexion de cet utilisateur
+6) changer le code scripté d'un utilisateur par étoile dans le fichier /etc/shadow en utilisant cat et sudo ;;
+7) lire un user et lire un group puis ajouter l'utilisateur au groupe
+fin de cas
+lire opt de nouveau
+fin tant que
+
+

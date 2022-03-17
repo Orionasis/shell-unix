@@ -1,0 +1,4 @@
+#!/bin/bash
+echo '$1' est $1
+set hello
+echo '$1' est $1

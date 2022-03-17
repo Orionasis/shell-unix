@@ -1,0 +1,27 @@
+#! /bin/bash
+echo "choisissez une option"
+echo -e  "1) Création d’un nouvel utilisateur\n 2)- Supprimer un compte utilisateur \n 3)- Lister les utilisateurs existant\n 4) Lister les utilisateurs connectés \n 5) Afficher la date des la dernière connexion d’un utilisateur \n 6) Désactiver un compte \n 7) Changer le groupe d’un utilisateur le temps d’une session \n 8) Quitter l’utilitaire"
+regex="^[A-Za-z]+"
+
+read opt
+if [[ "$opt" =~ $regex ]]
+then
+echo "its not an integer"
+echo -e "1) Création d’un nouvel utilisateur\n 2)- Supprimer un compte utilisateur \n 3)- Lister les utilisateurs existant\n 4) Lister les utilisateurs connectés \n 5) Afficher la date des la de la dernière connexion d'un utilisateur \n 6) Désactiver un compte \n 7) Changer le groupe d'un utilisateur le temps d'une session \n 8) Quitter l'utilisateur"
+read opt
+while [[ $opt -lt 8 ]]
+do
+case $opt in
+1) read user ; sudo adduser $user; echo -e  "1) Création d’un nouvel utilisateur\n 2)- Supprimer un compte utilisateur \n 3)- Lister les utilisateurs existant\n 4) Lister les utilisateurs connectés \n 5) Afficher la date de la dernière connexion d’un utilisateur \n 6) Désactiver un compte \n 7) Changer le groupe d’un utilisateur le temps d’une session \n 8) Quitter l’utilitaire" ;;
+2) read user ;  sudo deluser $user; echo -e  "1) Création d’un nouvel utilisateur\n 2)- Supprimer un compte utilisateur \n 3)- Lister les utilisateurs existant\n 4) Lister les utilisateurs connectés \n 5) Afficher la date de la dernière connexion d’un utilisateur \n 6) Désactiver un compte \n 7) Changer le groupe d’un utilisateur le temps d’une session \n 8) Quitter l’utilitaire" ;;
+3) cat /etc/passwd; echo -e  "1) Création d’un nouvel utilisateur\n 2)- Supprimer un compte utilisateur \n 3)- Lister les utilisateurs existant\n 4) Lister les utilisateurs connectés \n 5) Afficher la date de la dernière connexion d’un utilisateur \n 6) Désactiver un compte \n 7) Changer le groupe d’un utilisateur le temps d’une session \n 8) Quitter l’utilitaire" ;;
+4) who; echo -e  "1) Création d’un nouvel utilisateur\n 2)- Supprimer un compte utilisateur \n 3)- Lister les utilisateurs existant\n 4) Lister les utilisateurs connectés \n 5) Afficher la date de la dernière connexion d’un utilisateur \n 6) Désactiver un compte \n 7) Changer le groupe d’un utilisateur le temps d’une session \n 8) Quitter l’utilitaire" ;;
+5) read user ; last $user; echo -e  "1) Création d’un nouvel utilisateur\n 2)- Supprimer un compte utilisateur \n 3)- Lister les utilisateurs existant\n 4) Lister les utilisateurs connectés \n 5) Afficher la date de la dernière connexion d’un utilisateur \n 6) Désactiver un compte \n 7) Changer le groupe d’un utilisateur le temps d’une session \n 8) Quitter l’utilitaire" ;;
+6) sudo gedit /etc/shadow ; echo -e  "1) Création d’un nouvel utilisateur\n 2)- Supprimer un compte utilisateur \n 3)- Lister les utilisateurs existant\n 4) Lister les utilisateurs connectés \n 5) Afficher la date de la dernière connexion d’un utilisateur \n 6) Désactiver un compte \n 7) Changer le groupe d’un utilisateur le temps d’une session \n 8) Quitter l’utilitaire" ;;
+7) read user ; read group ; sudo usermod -a $user -G $group; echo -e  "1) Création d’un nouvel utilisateur\n 2)- Supprimer un compte utilisateur \n 3)- Lister les utilisateurs existant\n 4) Lister les utilisateurs connectés \n 5) Afficher la date de la dernière connexion d’un utilisateur \n 6) Désactiver un compte \n 7) Changer le groupe d’un utilisateur le temps d’une session \n 8) Quitter l’utilitaire";;
+
+esac
+read opt
+
+done
+fi

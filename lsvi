@@ -1,0 +1,4 @@
+#!/bin/bash
+ # @(#) lvi
+ls vi
+exit 23

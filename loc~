@@ -1,0 +1,8 @@
+#!/bin/bash       
+function f1       
+{ 
+local -i a=12
+(( a++ ))
+echo "-- Dans f1 : a = $a"       
+}       
+f1       echo "Dans main : a = $a"

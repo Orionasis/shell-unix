@@ -1,0 +1,3 @@
+#!/bin/bash
+echo appel a la fonction externe : bonj 
+bonj Monsieur 

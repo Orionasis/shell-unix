@@ -1,0 +1,20 @@
+#!/bin/bash
+function f3       
+{       
+(( x = -x ))
+echo "f3 : x=$x (modification)"       
+}       
+function f2       
+{       
+echo "f2 : $((x+10))"
+f3
+}
+function f1       
+{ 
+local -i x
+x=2
+echo "f1 : x=$x (initialisation)" 
+f2
+echo "f1 : Valeur finale : x=$x"       
+} 
+f1

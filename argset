@@ -1,0 +1,11 @@
+#!/bin/bash       
+function f
+{
+echo " -- Dans f : Avant execution de set \$(date) : \$* : $*" 
+set $(date)       
+echo " -- Dans f : Apres execution de set \$(date) : \$* : $*"
+} 
+echo "Avant f : $*" 
+echo Appel : "f alpha beta" 
+f alpha beta 
+echo "Apres f : $*"

@@ -1,0 +1,6 @@
+#!/bin/bash
+ # @(#) nombre
+ shopt -s extglob
+ case $1 in
+ 
+esac

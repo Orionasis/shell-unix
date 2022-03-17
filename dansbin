@@ -1,0 +1,3 @@
+#!/bin/bash
+ls /bin/$1 > fich
+echo $?

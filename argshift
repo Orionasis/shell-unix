@@ -1,0 +1,9 @@
+#!/bin/bash       
+function f       
+{       
+echo " --- Dans f : Avant 'shift 2' : \$* : $*" 
+shift 2       
+echo " --- Dans f : Apres 'shift 2' : \$* : $*"       
+}       
+echo Appel : f un deux trois quatre
+f  un deux trois quatre

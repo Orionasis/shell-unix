@@ -1,0 +1,12 @@
+#!/bin/bash 
+function f       
+{       
+echo " --- Dans f : \$0 : $0"       
+echo " --- Dans f : \$# : $#"       
+echo " --- Dans f : \$1 : $1"
+}       
+echo "Avant f : \$0 : $0"       
+echo "Avant f : \$# : $#"       
+echo "Avant f : \$1 : $1"   
+f  pierre  paul jacques       
+echo "Apres f : \$1 : $1" 

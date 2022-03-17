@@ -1,0 +1,35 @@
+#! /bin/bash
+echo "choisissez une option"
+echo -e  "1) Création d’un nouvel utilisateur\n 2)- Supprimer un compte utilisateur \n 3)- Lister les utilisateurs existant\n 4) Lister les utilisateurs connectés \n 5) Afficher la date des la dernière connexion d’un utilisateur \n 6) Désactiver un compte \n 7) Changer le groupe d’un utilisateur le temps d’une session \n 8) Quitter l’utilitaire"
+regex="^[A-Za-z]+" #affecte à une valeur regex toutes les lettres de l'alphabet
+
+read opt #on lit la variable opt et on écrit dedans
+if [[ "$opt" =~ $regex ]] #on test si opt est égal à regex
+then
+echo "its not an integer" #on affiche que ce n'est pas un integer si opt est une lettre
+echo -e "1) Création d’un nouvel utilisateur\n 2)- Supprimer un compte utilisateur \n 3)- Lister les utilisateurs existant\n 4) Lister les utilisateurs connectés \n 5) Afficher la date des la de la dernière connexion d'un utilisateur \n 6) Désactiver un compte \n 7) Changer le groupe d'un utilisateur le temps d'une session \n 8) Quitter l'utilisateur"
+#on affiche le menu puis on relance opt
+read opt
+while [[ $opt -lt 8 ]] #une boucle tant la valeur opt est inférieur à 8
+do
+case $opt in 
+#si opt=1 lire un utilisateur et l'ajouter à la base de données de l'ordinateur et réafficher le menu
+1) read user ; sudo adduser $user; echo -e  "1) Création d’un nouvel utilisateur\n 2)- Supprimer un compte utilisateur \n 3)- Lister les utilisateurs existant\n 4) Lister les utilisateurs connectés \n 5) Afficher la date de la dernière connexion d’un utilisateur \n 6) Désactiver un compte \n 7) Changer le groupe d’un utilisateur le temps d’une session \n 8) Quitter l’utilitaire" ;;
+# si opt=2 lire un utilisateur et le supprimer de la base et réafficher le menu
+2) read user ;  sudo deluser $user; echo -e  "1) Création d’un nouvel utilisateur\n 2)- Supprimer un compte utilisateur \n 3)- Lister les utilisateurs existant\n 4) Lister les utilisateurs connectés \n 5) Afficher la date de la dernière connexion d’un utilisateur \n 6) Désactiver un compte \n 7) Changer le groupe d’un utilisateur le temps d’une session \n 8) Quitter l’utilitaire" ;;
+# si opt=3 on affiche les utilisateurs existant dans la base de données 
+3) cat /etc/passwd; echo -e  "1) Création d’un nouvel utilisateur\n 2)- Supprimer un compte utilisateur \n 3)- Lister les utilisateurs existant\n 4) Lister les utilisateurs connectés \n 5) Afficher la date de la dernière connexion d’un utilisateur \n 6) Désactiver un compte \n 7) Changer le groupe d’un utilisateur le temps d’une session \n 8) Quitter l’utilitaire" ;;
+# si opt=4 on affiche les utilisateurs connectés
+4) who; echo -e  "1) Création d’un nouvel utilisateur\n 2)- Supprimer un compte utilisateur \n 3)- Lister les utilisateurs existant\n 4) Lister les utilisateurs connectés \n 5) Afficher la date de la dernière connexion d’un utilisateur \n 6) Désactiver un compte \n 7) Changer le groupe d’un utilisateur le temps d’une session \n 8) Quitter l’utilitaire" ;;
+# si opt=5 lire un utilisateur puis regarder la date de sa dernière connexion
+5) read user ; last $user; echo -e  "1) Création d’un nouvel utilisateur\n 2)- Supprimer un compte utilisateur \n 3)- Lister les utilisateurs existant\n 4) Lister les utilisateurs connectés \n 5) Afficher la date de la dernière connexion d’un utilisateur \n 6) Désactiver un compte \n 7) Changer le groupe d’un utilisateur le temps d’une session \n 8) Quitter l’utilitaire" ;;
+# si opt=6 modifier le fichier /etc/shadow pour rendre inactif un utilisateur
+6) sudo gedit /etc/shadow ; echo -e  "1) Création d’un nouvel utilisateur\n 2)- Supprimer un compte utilisateur \n 3)- Lister les utilisateurs existant\n 4) Lister les utilisateurs connectés \n 5) Afficher la date de la dernière connexion d’un utilisateur \n 6) Désactiver un compte \n 7) Changer le groupe d’un utilisateur le temps d’une session \n 8) Quitter l’utilitaire" ;;
+# si opt=7 lire un utilisateur et un groupe puis ajouter l'utilisateur au groupe'
+7) read user ; read group ; sudo usermod -a $user -G $group; echo -e  "1) Création d’un nouvel utilisateur\n 2)- Supprimer un compte utilisateur \n 3)- Lister les utilisateurs existant\n 4) Lister les utilisateurs connectés \n 5) Afficher la date de la dernière connexion d’un utilisateur \n 6) Désactiver un compte \n 7) Changer le groupe d’un utilisateur le temps d’une session \n 8) Quitter l’utilitaire";;
+
+esac 
+read opt #lire de nouveau opt après l'utilitaire'
+
+done
+fi

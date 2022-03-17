@@ -1,0 +1,3 @@
+#!/bin/bash
+read -p "Entrez une suite de mots : " a b c;
+echo $a $c

@@ -1,0 +1,3 @@
+#!/bin/bash
+nblignes=$( wc -l < $1 )
+echo $nblignes

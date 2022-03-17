@@ -1,0 +1,21 @@
+#!/bin/bash
+function ping
+{
+echo ping
+if (( i > 0 ))
+then
+((i--))
+echo "n'affiche pas pong"
+fi
+} 
+function pong
+{
+echo pong
+if (( i > 0 ))
+then
+((i--))
+fi
+ping
+}
+declare -i i=4
+ping 

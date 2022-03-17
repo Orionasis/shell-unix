@@ -1,0 +1,6 @@
+#!/bin/bash
+agePierre=10
+ageJean=20
+read -p "Quel age (Pierre ou Jean) voulez vous connaitre ? " prenom
+rep=age$prenom
+echo ${!rep}
